@@ -28,7 +28,7 @@ telegram_session_start();
 
 $t_post = json_decode( Longman\TelegramBot\Request::getInput(), true );
 
-$t_update         = new Longman\TelegramBot\Entities\Update( $t_post );
+$t_update         = new Longman\TelegramBot\Entities\Update( $t_post != null ? $t_post : array() );
 $t_update_content = $t_update->getUpdateContent();
 
 if( $t_update_content == null ) {
